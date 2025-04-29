@@ -11,7 +11,7 @@
 ## 아키텍처
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/558ef010-b6a0-4b0c-a575-7b44ec3430bc">
+  <img src="https://github.com/user-attachments/assets/b1f04d64-687b-4362-b644-6fab29374c63">
 </p>
 
 ## 시퀀스 다이어그램
@@ -116,7 +116,7 @@ sequenceDiagram
 ### 분산락
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/8f586c01-5af9-4630-b197-52f2cd46d660">
+  <img src="https://github.com/user-attachments/assets/26d907d3-692d-4465-bb25-dc7d71c0d9b2">
 </p>
 
 테스트 결과 Sample#91 이후의 사용자들은 의도한 대로 상품을 구매하지 못했음을 확인할 수 있었습니다.
@@ -124,7 +124,7 @@ sequenceDiagram
 요청을 보낸 시간 순으로 정렬해보면,
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4c9b2bad-6b0b-4a85-a7d4-a0ecc10d0192">
+  <img src="https://github.com/user-attachments/assets/27682fa5-eb3a-4789-8445-60f608606776">
 </p>
 
 응답 완료 순서가 불규칙함을 알 수 있습니다. 또한, 요청 시작 시간이 빠른 사용자도 락을 획득하지 못해 구매에 실패했는데, 이는 Redlock이 경쟁을 통해 임의로 락을 할당하기 때문입니다.
@@ -132,7 +132,7 @@ sequenceDiagram
 ### 공정락
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/782fa748-36a8-420a-95ed-e9cf74c35662">
+  <img src="https://github.com/user-attachments/assets/b0411685-dc83-475b-988f-fe7bfe23b8d6">
 </p>
 
 마찬가지로 Sample#91 이후의 사용자는 상품을 구매하지 못했음을 확인할 수 있습니다.
@@ -140,7 +140,7 @@ sequenceDiagram
 요청을 보낸 시간 순으로 정렬해보면,
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/08388dd6-379c-4d57-b1aa-ffe5647e891d">
+  <img src="https://github.com/user-attachments/assets/45d77157-d247-4a3f-90a4-253659155db9">
 </p>
 
 요청 시작 시간이 빠른 순서대로 처리된 것을 확인할 수 있습니다. 즉, 구매에 실패한 10명의 사용자는 단순히 요청 타이밍이 늦었기 때문입니다.
@@ -154,6 +154,3 @@ sequenceDiagram
 - 재고 차감·단순 트랜잭션 등 공정성보다 처리 속도가 우선인 경우 → 분산락
   
 - 플래시 세일·한정 수량 이벤트 등 요청 순서가 중요한 경우 → 공정락
-
-## 개발 이슈 사항
-
