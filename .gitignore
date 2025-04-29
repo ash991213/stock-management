@@ -40,3 +40,6 @@ init.sql
 
 # dependencies
 pnpm-lock.yaml
+
+# docker
+docker-compose.yml
